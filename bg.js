@@ -36,7 +36,7 @@
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         
         function createStarfield() {
-            const count = 5000, pos = [];
+            const count = 500, pos = [];
             for (let i = 0; i < count; i++) {
                 const r = THREE.MathUtils.randFloat(40, 120);
                 const phi = Math.acos(THREE.MathUtils.randFloatSpread(2));
