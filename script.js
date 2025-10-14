@@ -1,13 +1,48 @@
-//the advancing tech part is hiding
-
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const overlay = document.querySelector('.overlay');
+const navItems = navLinks.querySelectorAll('li');
 
 menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+  const isActive = navLinks.classList.toggle('active');
+  overlay.classList.toggle('active');
+  menuToggle.classList.toggle('active');
+
+  // Apply staggered fade-in for links
+  navItems.forEach((item, i) => {
+    if (isActive) {
+      item.style.transition = `opacity 300ms ease ${i * 60}ms, transform 300ms ease ${i * 60}ms`;
+      item.style.opacity = 1;
+      item.style.transform = 'translateX(0)';
+    } else {
+      item.style.transition = 'none';
+      item.style.opacity = 0;
+      item.style.transform = 'translateX(8px)';
+    }
+  });
 });
 
+// Close menu when overlay clicked
+overlay.addEventListener('click', closeMenu);
 
+// Close menu when clicking outside nav
+document.addEventListener('click', (e) => {
+  if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+    closeMenu();
+  }
+});
+
+function closeMenu() {
+  navLinks.classList.remove('active');
+  overlay.classList.remove('active');
+  menuToggle.classList.remove('active');
+
+  navItems.forEach(item => {
+    item.style.transition = 'none';
+    item.style.opacity = 0;
+    item.style.transform = 'translateX(8px)';
+  });
+}
 
 
 

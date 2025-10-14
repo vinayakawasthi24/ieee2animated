@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events | IEEE</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ===== Root Variables ===== */
+    :root {
+      --ieee-blue: #00629b;
+      --neon-cyan: #00eaff;
+      --secondary: #004d73;
+      --light: #e6faff;
+      --white: #ffffff;
+      --dark-bg: #0b0c10;
+      --transition: all 0.3s ease-in-out;
+    }
+
+    /* ===== Global Page Styling ===== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Montserrat", sans-serif;
+      color: var(--white);
+      background: radial-gradient(circle at 20% 20%, #060e18, #0a0a0a 80%);
+      overflow-x: hidden;
+    }
+
+    /* subtle glowing animated background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 234, 255, 0.08), transparent 70%),
+                  radial-gradient(circle at 10% 80%, rgba(0, 234, 255, 0.05), transparent 70%),
+                  radial-gradient(circle at 80% 20%, rgba(0, 98, 155, 0.06), transparent 70%);
+      z-index: 0;
+      animation: bgMove 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes bgMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-50px, -50px); }
+    }
+
+    /* ===== Sections ===== */
+    section {
+      position: relative;
+      z-index: 2;
+      padding: 100px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== Section Titles ===== */
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(45deg, var(--white), var(--white));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--light);
+      opacity: 0.8;
+    }
+
+    /* ===== Conference Section ===== */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .event-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      border-radius: 15px;
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .event-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 255, 255, 0.15);
+      border-color: var(--neon-cyan);
+    }
+
+    .event-date {
+      background: linear-gradient(45deg, var(--ieee-blue), var(--neon-cyan));
+      padding: 25px;
+      text-align: center;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .event-content {
+      padding: 25px;
+    }
+
+    .event-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--light);
+    }
+
+    .event-content p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+
+    /* ===== Upcoming Events Section ===== */
+    .events {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .event-image {
+      height: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--neon-cyan);
+      transition: var(--transition);
+    }
+
+    .event-image:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .event-content .event-date {
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .event-content .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: linear-gradient(45deg, var(--ieee-blue), var(--neon-cyan));
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .event-content .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .events, .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="events" class="section">
+    <div class="container">
+      <h2 class="section-title">Conferences</h2>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-date">
+            <div style="font-size: 2rem">15–18</div>
+            <div>MAR 2025</div>
+          </div>
+          <div class="event-content">
+            <div class="event-title">
+              IEEE International Conference on Robotics and Automation
+            </div>
+            <p>
+              Join leading researchers and industry experts in robotics,
+              automation, and AI. Featuring keynotes, technical sessions, and
+              live demonstrations.
+            </p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <div style="font-size: 2rem">22–25</div>
+            <div>APR 2024</div>
+          </div>
+          <div class="event-content">
+            <div class="event-title">IEEE Quantum Computing Summit</div>
+            <p>
+              Explore the latest advances in quantum computing, algorithms, and
+              hardware with world-renowned experts.
+            </p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <div style="font-size: 2rem">10–13</div>
+            <div>JUN 2024</div>
+          </div>
+          <div class="event-content">
+            <div class="event-title">
+              IEEE World Congress on Computational Intelligence
+            </div>
+            <p>
+              The premier event for computational intelligence — neural
+              networks, fuzzy systems, and evolutionary computation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section id="upcoming-events">
+    <div class="section-title">
+      <h2>Upcoming Events</h2>
+      <p>Join us for our upcoming technical sessions and networking events</p>
+    </div>
+
+    <div class="events">
+      <div class="event-card">
+        <div class="event-image">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="event-content">
+          <div class="event-date">October 15, 2023</div>
+          <h3>AI & Machine Learning Workshop</h3>
+          <p>
+            Hands-on session on building and training neural networks with
+            Python and TensorFlow.
+          </p>
+          <a href="#" class="btn">Register Now</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-image">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="event-content">
+          <div class="event-date">November 5, 2023</div>
+          <h3>24-Hour Hackathon</h3>
+          <p>
+            Collaborate, code, and create innovative solutions to real-world
+            problems.
+          </p>
+          <a href="#" class="btn">Register Now</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-image">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="event-content">
+          <div class="event-date">December 12, 2023</div>
+          <h3>Cybersecurity Seminar</h3>
+          <p>
+            Learn about the latest threats and defense mechanisms in the
+            digital world.
+          </p>
+          <a href="#" class="btn">Register Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+</body>
+
+
+</html>

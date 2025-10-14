@@ -19,30 +19,42 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
+
+
+
   <body>
     <canvas id="neural-network-canvas"></canvas>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <a href="#home" class="logo">
-  <img src="images/logo.png" alt="IEEE Logo" />
-</a>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#membership">Membership</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
 
-    <!-- 👇 Add this line for the menu button -->
 
-     <div class="menu-toggle" id="menu-toggle">☰</div>
+
+
+    
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#home" class="logo">
+      <img src="images/Gemini_Generated_Image_xwu2y6xwu2y6xwu2-removebg-preview.png" alt="IEEE Logo" />
+    </a>
+
+    <!-- Mobile Toggle -->
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="research.html"  target="_blank">Research</a></li>
+      <li><a href="event.html" target="_blank">Events</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
 </nav>
+
+<!-- Overlay -->
+<div class="overlay"></div>
+
+
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -188,113 +200,6 @@
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="section">
-      <div class="container">
-        <h2 class="section-title">Conferences</h2>
-        <div class="events-grid">
-          <div class="event-card">
-            <div class="event-date">
-              <div style="font-size: 2rem">15-18</div>
-              <div>MAR 2025</div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">
-                IEEE International Conference on Robotics and Automation
-              </div>
-              <p>
-                Join leading researchers and industry experts in robotics,
-                automation, and AI. Featuring keynotes, technical sessions, and
-                live demonstrations.
-              </p>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div style="font-size: 2rem">22-25</div>
-              <div>APR 2024</div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">IEEE Quantum Computing Summit</div>
-              <p>
-                Explore the latest advances in quantum computing, quantum
-                algorithms, and quantum hardware with world-renowned experts.
-              </p>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div style="font-size: 2rem">10-13</div>
-              <div>JUN 2024</div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">
-                IEEE World Congress on Computational Intelligence
-              </div>
-              <p>
-                The premier event for computational intelligence, featuring
-                neural networks, fuzzy systems, and evolutionary computation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- event section -->
-
-    <section id="events">
-      <div class="section-title">
-        <h2>Upcoming Events</h2>
-        <p>Join us for our upcoming technical sessions and networking events</p>
-      </div>
-
-      <div class="events">
-        <div class="event-card">
-          <div class="event-image">
-            <i class="fas fa-robot"></i>
-          </div>
-          <div class="event-content">
-            <div class="event-date">October 15, 2023</div>
-            <h3>AI & Machine Learning Workshop</h3>
-            <p>
-              Hands-on session on building and training neural networks with
-              Python and TensorFlow.
-            </p>
-            <a href="#" class="btn">Register Now</a>
-          </div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-image">
-            <i class="fas fa-code"></i>
-          </div>
-          <div class="event-content">
-            <div class="event-date">November 5, 2023</div>
-            <h3>24-Hour Hackathon</h3>
-            <p>
-              Collaborate, code, and create innovative solutions to real-world
-              problems.
-            </p>
-            <a href="#" class="btn">Register Now</a>
-          </div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-image">
-            <i class="fas fa-network-wired"></i>
-          </div>
-          <div class="event-content">
-            <div class="event-date">December 12, 2023</div>
-            <h3>Cybersecurity Seminar</h3>
-            <p>
-              Learn about the latest threats and defense mechanisms in the
-              digital world.
-            </p>
-            <a href="#" class="btn">Register Now</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Membership Section -->
     <section id="membership" class="section">
@@ -315,7 +220,7 @@
               opportunities, and career advancement resources.
             </p>
             <br />
-            <a href="#" class="cta-button">Join IEEE Today</a>
+            <a href="https://www.ieee.org/membership/join"  target="_blank"  class="cta-button" >Join IEEE Today</a>
           </div>
           <div class="about-features">
             <div class="feature-card">
