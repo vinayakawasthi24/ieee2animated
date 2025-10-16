@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approach Form</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+
+/* Reset & Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar-unique {
+  backdrop-filter: blur(10px);
+}
+
+#approach-section {
+  margin-top: 100px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0a0a0a;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+:root {
+  --ieee-blue: #006699;
+  --neon-cyan: #00ffff;
+  --dark-bg: #0a0a0a;
+  --light: #ffffff;
+  --transition: all 0.3s ease;
+}
+
+section#approach-section {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--neon-cyan);
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.section-header:after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: var(--secondary);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Approach Form */
+.approach-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: transparent;
+  padding: 2rem;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.approach-form.visible-anim {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--light);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: var(--light);
+  font-family: 'Inter', sans-serif;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.primary-btn {
+  display: inline-block;
+  background: var(--ieee-blue);
+  color: var(--light);
+  border: none;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.primary-btn:hover {
+  background: var(--neon-cyan);
+  color: #000;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Fade-in effect trigger */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.visible-anim {
+  animation: fadeInUp 1s ease forwards;
+}
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <canvas id="neural-network-canvas"></canvas>
+
+  <div>
+    
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#home" class="logo">
+      <img src="images/Gemini_Generated_Image_xwu2y6xwu2y6xwu2-removebg-preview.png" alt="IEEE Logo" />
+    </a>
+
+    <!-- Mobile Toggle -->
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">About</a></li>
+      <li><a href="research.html"  target="_blank">Research</a></li>
+      <li><a href="event.html" target="_blank">Events</a></li>
+      <li><a href="index.html">Membership</a></li>
+      <li><a href="getintouch.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Overlay -->
+<div class="overlay"></div>
+
+    <section id="approach-section">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+        <p>Have questions or want to get involved? Reach out to us!</p>
+      </div>
+
+      <div class="approach-form" id="approachContainer">
+        <form id="approachForm">
+          <div class="form-field">
+            <label for="fullName">Your Name</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+
+          <div class="form-field">
+            <label for="userEmail">Email Address</label>
+            <input type="email" id="userEmail" name="userEmail" required />
+          </div>
+
+          <div class="form-field">
+            <label for="userMessage">Your Message</label>
+            <textarea id="userMessage" name="userMessage" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="primary-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+ <div class="footer-bottom">
+          <p>
+            &copy; 2024 IEEE. All rights reserved. | Privacy Policy | Terms of
+            Use
+          </p>
+        </div>
+
+  <script>
+    // Fade-in on load
+    window.addEventListener("load", () => {
+      document.getElementById("approachContainer").classList.add("visible-anim");
+    });
+
+    // Simple form submission handler
+    document.getElementById("approachForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Thank you for reaching out! Your message has been sent.");
+      e.target.reset();
+    });
+  </script>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script type="module" src="bg.js"></script>
+</body>
+</html>

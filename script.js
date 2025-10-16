@@ -3,10 +3,22 @@ const navLinks = document.querySelector('.nav-links');
 const overlay = document.querySelector('.overlay');
 const navItems = navLinks.querySelectorAll('li');
 
+// Function to check if mobile
+function isMobile() {
+  return window.innerWidth <= 768; // adjust breakpoint
+}
+
 menuToggle.addEventListener('click', () => {
+  if (!isMobile()) return; // only run on mobile
+
   const isActive = navLinks.classList.toggle('active');
   overlay.classList.toggle('active');
   menuToggle.classList.toggle('active');
+
+menuToggle.classList.toggle('active');
+menuToggle.style.transform = menuToggle.classList.contains('active') ? 'rotate(90deg)' : 'rotate(0deg)';
+
+
 
   // Apply staggered fade-in for links
   navItems.forEach((item, i) => {
@@ -23,10 +35,14 @@ menuToggle.addEventListener('click', () => {
 });
 
 // Close menu when overlay clicked
-overlay.addEventListener('click', closeMenu);
+overlay.addEventListener('click', () => {
+  if (!isMobile()) return;
+  closeMenu();
+});
 
 // Close menu when clicking outside nav
 document.addEventListener('click', (e) => {
+  if (!isMobile()) return;
   if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
     closeMenu();
   }
@@ -37,6 +53,8 @@ function closeMenu() {
   overlay.classList.remove('active');
   menuToggle.classList.remove('active');
 
+  if (!isMobile()) return; // do not hide links on desktop
+
   navItems.forEach(item => {
     item.style.transition = 'none';
     item.style.opacity = 0;
@@ -44,6 +62,18 @@ function closeMenu() {
   });
 }
 
+// Reset menu when resizing
+window.addEventListener('resize', () => {
+  if (!isMobile()) {
+    // reset styles so links are visible on desktop
+    navItems.forEach(item => {
+      item.style.transition = '';
+      item.style.opacity = '';
+      item.style.transform = '';
+    });
+    closeMenu();
+  }
+});
 
 
 // Particle animation
